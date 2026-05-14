@@ -86,3 +86,35 @@ updated_at      = 1776199338                               (diff +9186s — refr
 **Description:** Documentation cookbook showing the `GoogleAuth` coordinator pattern wired to a DB without mounting the callback router. End-to-end semantics are identical to `google_workspace_with_db.py` above (which IS smoke-tested) — this cookbook differs only in having a single toolkit under the coordinator. Not separately E2E-tested because the covering test above exercises the same code paths.
 
 ---
+
+
+## 2026-05-14 — GoogleDocsTools cookbook (stacked on PR #7635)
+
+### docs_tools.py
+
+**Status:** PASS (manual E2E, real Google Docs + Drive API)
+
+**Configuration:** single toolkit, `GoogleDocsTools()` with default scopes (`documents`, `drive.file`), file-based token cache (`token.json`) for local dev, model `OpenAIResponses(id="gpt-5.4")`.
+
+**Test run:** first-run OAuth flow exercised the full interactive consent path — browser opened to Google consent, user approved Docs + Drive scopes, `token.json` was written, then the agent invoked the toolkit twice in sequence:
+
+1. `create_document(title="Q3 2026 Launch Plan")` — Google Docs API call succeeded, returned a valid `documentId`.
+2. `append_text(document_id=<returned-id>, text="## Goals\n1. Ship the new dashboard by end of August\n2. Migrate 100% of customers to the new auth flow\n3. Reduce p95 latency below 400ms")` — internal `get` to compute endIndex, then `batchUpdate` `insertText` at `endIndex - 1`. Succeeded.
+
+**Result:** doc was created in the tester's Drive at the standard `https://docs.google.com/document/d/<document-id>/edit` URL pattern, with the requested title and Goals section. Total tool latency 19.5s (includes one OpenAI planning round-trip and two Docs API calls). No user interaction required after consent.
+
+**Invariants verified by this run:**
+
+1. **OAuth flow against the new `GoogleToolkit` base** — `_resolve_creds` correctly falls through to `InstalledAppFlow.run_local_server()` when no DB token and no service-account file are present.
+2. **Per-call `service` via contextvar** — both `create_document` and `append_text` accessed `self.docs_service` through the contextvar property, no instance caching.
+3. **Multi-API service dict** — `_build_service` returned `{"docs": ..., "drive": ...}` and both APIs were accessible from the same toolkit instance.
+4. **Scope union is sufficient** — `documents` + `drive.file` covered both `create` (Docs API) and the eventual delete/export paths (Drive API, untested here but uses the same scope).
+5. **Agent tool-chain reasoning** — `gpt-5.4` correctly extracted `documentId` from the first call's JSON response and passed it as the `document_id` arg to the second call.
+
+**Untested in this run (covered by unit tests only):**
+- `get_document`, `get_document_text` — read paths
+- `batch_update` — direct invocation (tested transitively via `append_text` which calls `batchUpdate` internally)
+- `export_as_pdf` — PDF export via Drive API
+- `delete_document` — destructive path (off by default, would need `delete_document=True` flag)
+
+---

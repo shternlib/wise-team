@@ -77,6 +77,7 @@ Go to **APIs & Services > Enable APIs and Services** and enable:
 | `GmailTools` | Gmail API |
 | `GoogleDriveTools` | Google Drive API |
 | `GoogleSlidesTools` | Google Slides API + Google Drive API |
+| `GoogleDocsTools` | Google Docs API + Google Drive API |
 
 ### 3. Create OAuth Credentials
 
@@ -155,6 +156,12 @@ export GOOGLE_DELEGATED_USER=user@yourdomain.com  # required for Gmail, optional
 | `slides_presentation_builder.py` | Multi-slide deck builder with tables, layouts, and text annotations |
 | `slides_content_reader.py` | Read and summarize existing presentations with structured output |
 | `slides_media_slides.py` | Background images, YouTube embeds, and Drive video integration |
+
+### Docs
+
+| File | Description |
+|------|-------------|
+| `docs_tools.py` | Core examples: create document, read text, batch update, append text, export as PDF |
 
 ### Combined
 
