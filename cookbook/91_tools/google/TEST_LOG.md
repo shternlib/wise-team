@@ -114,7 +114,7 @@ updated_at      = 1776199338                               (diff +9186s — refr
 **Untested in this run (covered by unit tests only):**
 - `get_document`, `get_document_text` — read paths
 - `batch_update` — direct invocation (tested transitively via `append_text` which calls `batchUpdate` internally)
-- `export_as_pdf` — PDF export via Drive API
-- `delete_document` — destructive path (off by default, would need `delete_document=True` flag)
+- `export_as_pdf` — PDF export via Drive API; **off by default after Copilot review feedback**. Writes under the `export_dir` sandbox (bare filenames only, traversal rejected). Enable with `export_as_pdf=True` plus `export_dir=Path("./pdfs")`.
+- `delete_document` — destructive path; **trashes via `drive.files().update(trashed=True)`** (recoverable for 30 days). Off by default; enable via `delete_document=True`.
 
 ---
