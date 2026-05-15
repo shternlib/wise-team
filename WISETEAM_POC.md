@@ -24,9 +24,9 @@ See full test plan: https://inspark.wiseorg.io/docs/agno-test-plan.html
 
 | Stage | Status | Deliverable |
 |-------|--------|-------------|
-| 0 · Setup | 🟡 in progress | Fork, CI/CD, dev env, telemetry off |
-| 1 · Smoke | ⏳ | Hello-world Agno agent + OTel trace |
-| 2 · MUST tests (A1-A4) | ⏳ | 4 MUSTs validated isolated |
+| 0 · Setup | ✓ done | Fork, dev env, telemetry off, PoC marker |
+| 1 · Smoke | ✓ done | Hello-world Agno + Claude e2e |
+| 2 · MUST tests (A1-A4) | 🟡 1/4 | A1 ✓ Protocol Ext. · A2 ⏳ Multi-tenant · A3 ⏳ OTel · A4 ⏳ MCP |
 | 3 · In++ Layer | ⏳ | CI/SP/IRS/TB/PB as Pydantic schemas |
 | 4 · Vergil S2 | ⏳ | Built-in coordinator agent |
 | 5 · CVD scenarios (B) | ⏳ | Nick + Mr.Wolf + Vergil, CVD 0-2 e2e |
