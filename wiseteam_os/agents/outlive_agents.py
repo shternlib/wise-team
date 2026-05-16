@@ -50,7 +50,7 @@ def build_haizel(db: SqliteDb) -> Agent:
     instructions = _wrap_with_persona(
         name="Haizel",
         role_ru="endocrinologist - hormones, metabolism, thyroid, insulin, blood glucose",
-        base_instructions=load_skill("endocrinologist"),
+        base_instructions=load_skill("endocrinologist", with_references=True),
     )
     return Agent(
         id="haizel", name="Haizel",
