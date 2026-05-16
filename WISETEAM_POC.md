@@ -31,7 +31,7 @@ See full test plan: https://inspark.wiseorg.io/docs/agno-test-plan.html
 | 4 · Vergil S2 | ✓ done | Lifecycle FSM + CRT + Algedonic + Agno-wrapped narrative (14/14 tests, 3s) |
 | 5 · CVD scenarios (B) | ✓ done | B1 Cognition · B2 Deal · B3 Blueprint · B4 Algedonic (5/5 tests, 58s) |
 | 6 · Tenant security (C) | ✓ done | Holmes class per-tenant + confidential filter (9/9 tests, 7s) |
-| 7 · D, E, F | ⏳ | Self-evolution / Load / Fork-ability |
+| 7 · D, E, F | ✓ done | Versioning+rollback / Parallel+cost / Vergil+upstream-merge+telemetry (12/12 tests, 7s) |
 | 8 · Decision Gate | ⏳ | 22 criteria audit, Go/No-Go report |
 
 ## Deviations from upstream Agno
