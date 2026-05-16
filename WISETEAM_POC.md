@@ -32,7 +32,7 @@ See full test plan: https://inspark.wiseorg.io/docs/agno-test-plan.html
 | 5 · CVD scenarios (B) | ✓ done | B1 Cognition · B2 Deal · B3 Blueprint · B4 Algedonic (5/5 tests, 58s) |
 | 6 · Tenant security (C) | ✓ done | Holmes class per-tenant + confidential filter (9/9 tests, 7s) |
 | 7 · D, E, F | ✓ done | Versioning+rollback / Parallel+cost / Vergil+upstream-merge+telemetry (12/12 tests, 7s) |
-| 8 · Decision Gate | ⏳ | 22 criteria audit, Go/No-Go report |
+| 8 · Decision Gate | ✓ done | **GO**. All 12 HARD + 10 SOFT criteria pass. See [DECISION_GATE.md](DECISION_GATE.md) |
 
 ## Deviations from upstream Agno
 
