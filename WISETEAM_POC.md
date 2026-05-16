@@ -28,7 +28,7 @@ See full test plan: https://inspark.wiseorg.io/docs/agno-test-plan.html
 | 1 · Smoke | ✓ done | Hello-world Agno + Claude e2e |
 | 2 · MUST tests (A1-A4) | ✓ done | A1 ✓ Protocol Ext. · A2 ✓ Multi-tenant · A3 ✓ Observability · A4 ✓ Tools/MCP (17/17 tests pass, ~80s) |
 | 3 · In++ Layer | ✓ done | CI/SP/IRS/TB/PB as Pydantic + real CI→SP producer chain (5/5 tests, 53s) |
-| 4 · Vergil S2 | ⏳ | Built-in coordinator agent |
+| 4 · Vergil S2 | ✓ done | Lifecycle FSM + CRT + Algedonic + Agno-wrapped narrative (14/14 tests, 3s) |
 | 5 · CVD scenarios (B) | ⏳ | Nick + Mr.Wolf + Vergil, CVD 0-2 e2e |
 | 6 · Tenant security (C) | ⏳ | Holmes filter, 0 cross-leak |
 | 7 · D, E, F | ⏳ | Self-evolution / Load / Fork-ability |
