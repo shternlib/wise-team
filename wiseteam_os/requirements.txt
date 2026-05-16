@@ -1,0 +1,13 @@
+# Production dependencies for Wise Team OS deployment.
+# Used by Railway / Dockerfile build.
+
+agno>=2.6.7
+anthropic>=0.102.0
+python-dotenv>=1.0.0
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+
+# DB drivers (Postgres for production, SQLite for local)
+sqlalchemy>=2.0.0
+psycopg[binary]>=3.2.0
+aiosqlite>=0.20.0

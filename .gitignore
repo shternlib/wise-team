@@ -101,3 +101,7 @@ CLAUDE_PRIVATE.md
 pyrightconfig.json
 .python-version
 CLAUDE_PRIVATE.md
+
+# Wise Team OS
+wiseteam_os/*.db
+wiseteam_os/wiseteam_os.db
